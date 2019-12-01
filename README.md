@@ -17,6 +17,8 @@ if (data.fieldType === 'Sig') {
   // _this2.setFlags(_util.AnnotationFlag.HIDDEN);
 }
 
+cert password is '1234'
+
 PS:
 这只是一个demo,本项目综合使用了pdfsign.js  pdfjs-dist  jspdf.js
 
