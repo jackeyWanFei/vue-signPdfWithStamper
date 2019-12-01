@@ -94,6 +94,9 @@
 			// thif.convertCertData();
 		},
 		methods: {
+			setCertPswd(password) {
+				this.certPswd = password;
+			},
 			setPDFFile(file) {
 				this.pdfFile = file;
 			},
@@ -101,6 +104,9 @@
 				this.certBase64 = certBase64 ? certBase64 : imageTools.defaultPfxCert;
 				this.convertCertData();
 			},
+            setCertBuffer(arrayBuffer) {
+				this.cert = new Uint8Array(arrayBuffer);
+            },
 			convertCertData(e) {
 				var base64 = this.certBase64;
 				var raw = atob(base64);
@@ -351,6 +357,7 @@
 				}
 				let pdfSigned = null;
 				try {
+					console.log("===this.cert>>>>>", this.cert)
 					pdfSigned = await PDFSIGN.signpdf(this.pdfFile, this.cert, this.certPswd, stamperInfo, imageTools);
 				} catch (error) {
 					console.log("===error>>>>>", error)

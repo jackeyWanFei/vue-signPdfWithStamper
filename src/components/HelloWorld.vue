@@ -5,6 +5,14 @@
             <input type="file" @change="onClickAddPdf($event)"/>
         </div>
         <div class="iptLabel" style="width: 100%;text-align: left;height: 3rem;">
+            <span>upload cert</span>
+            <input type="file" @change="onClickAddCert($event)"/>
+        </div>
+        <div class="iptLabel" style="width: 100%;text-align: left;height: 3rem;">
+            <span>input cert password</span>
+            <input type="text" v-model="certPswd" @change="onPswdChanged"/>
+        </div>
+        <div class="iptLabel" style="width: 100%;text-align: left;height: 3rem;">
             <span>upload Stamper</span>
             <input type="file" @change="onClickAddStamper($event)"/>
         </div>
@@ -28,7 +36,9 @@
 		},
 		data() {
 			return {
-				pdfFileBuffer: ''
+				pdfFileBuffer: '',
+                cert: null,
+				certPswd: ''
 			}
 		},
 		filters: {
@@ -48,6 +58,10 @@
 				}
 
             },
+			onPswdChanged(e) {
+				console.log(e.target.value)
+				this.$refs.pdfFrame.setCertPswd(e.target.value)
+            },
 			onClickAddPdf(event) {
 				console.log(event.target.files)
 				var list = event.target.files;
@@ -64,6 +78,15 @@
 				}
 				this.$refs.pdfFrame.addPdfFile(list)
 			},
+			onClickAddCert(e) {
+				var file = e.target.files[0];
+				var reader = new FileReader();
+				reader.onload =  (event)=> {
+					this.cert = event.target.result;
+					this.$refs.pdfFrame.setCertBuffer(this.cert);
+				}
+				reader.readAsArrayBuffer(file);
+            },
 			onPdfError(e) {
 				console.log("==onPdfError>>", e)
 				// this.common.errBox(this, e, 2);
@@ -92,6 +115,11 @@
 
 .outer-container {
     position: relative;
+}
+
+input {
+    outline: 1px solid black;
+    width: 180PX;
 }
 
 .compactCont {
