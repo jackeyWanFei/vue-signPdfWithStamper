@@ -1,0 +1,57 @@
+$btnBackground: #1d95d9;
+$btnBoxshow: 0 2px 8px RGBA(29,149,217,.5);
+$btnBoxshow1: 0 2px 8px RGBA(29,149,217,.3);
+$blue-color:#1d95d9;
+$minWidth:'1024px';
+$successColor:#17de55;
+$tijiaozhongColir:#de9017;
+$fireColor:#de1717;
+.warning {
+    color: #1d95d9;
+}
+
+.el-button--primary span {
+    color: #fff;
+}
+
+.shubiao {
+    cursor: pointer;
+}
+.shibai {
+    color: #de1717;
+}
+.success {
+    color: #00c200;
+}
+.swpper {
+    min-width: 1200px;
+}
+@media screen and (max-width: 400px) {
+    .swpper {
+        width: 100%;
+    }
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #b7b7b7;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #b7b7b7;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #b7b7b7;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #b7b7b7;
+}
+@media only screen and (max-width: 1000px) {
+    .swpper {min-width: 100%;}
+}
+.masking .el-icon-caret-bottom,.masking .el-icon-caret-top {
+    color: #1D95D9;
+    font-size: .3rem;
+    position: absolute;
+    right: .1rem;
+    top: .25rem;
+    cursor: pointer;
+    z-index: 10;
+}

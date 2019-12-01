@@ -1,0 +1,237 @@
+@import "./mixin";
+
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  letter-spacing: 0;
+  background: #F5F6FA;;
+}
+
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  color: #333;
+  font-weight: normal;
+  font-family: "PingFangSC", "Microsoft Yahei", Helvetica, serif;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing: antialiased;
+  &:hover{
+    outline: none;
+  }
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
+
+button {
+  transition: .1s;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 0;
+  background-color: #f8f9fa;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px RGBA(29,149,217,.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: RGBA(29,149,217,.3);
+}
+
+input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
+  -webkit-appearance: none;
+}
+
+textarea { -webkit-appearance: none;}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b-wraper {
+  padding: 1.6rem 2.5rem 2.6rem 2.5rem;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0 2.5px 6.5px 0 rgba(172, 172, 172, 0.5);
+  box-shadow: 0 2.5px 6.5px 0 rgba(172, 172, 172, 0.5);
+  border-radius: 3px;
+}
+/* 自定义elementUI样式 */
+.el-table th.is-leaf {
+    border-bottom: 0;
+}
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+    background-color: transparent;
+}
+.el-table--striped .el-table__body tr.hover-row td {
+    background-color: transparent;
+}
+.el-table .cell {
+    line-height: .24rem;
+}
+
+.b-table.el-table {
+
+  th {
+  .cell {
+      font-weight: 900;
+  }
+    background: #FCFCFC;
+    font-weight: 900;
+  }
+  td div,.b-cursor {color: #1d95d9;}
+  tr,th {
+    padding: 0.16rem .1rem;
+    font-size: .18rem;
+  }
+  td {
+    letter-spacing: 0;
+    padding: .16rem .1rem;
+  }
+  td.text-black div {
+    color: #333;
+  }
+}
+
+.clear{
+  zoom:1;
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.back_img{
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.margin-auto {
+  margin: 0 auto;
+}
+
+.left{float: left;}
+
+.right{float: right;}
+
+.text-left {text-align: left;}
+
+.text-right {text-align: right;}
+
+.hide{display: none;}
+
+.show{display: block;}
+
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.b-container {
+  margin: 0 auto;
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+.b-cursor {cursor: pointer;color: #4A7FFE}
+
+@keyframes backOpacity{
+  0%   { opacity: 1 }
+  25%  { opacity: .5 }
+  50%  { opacity: 1 }
+  75%  { opacity: .5 }
+  100% { opacity: 1 }
+}
+
+.animation_opactiy{
+  animation: backOpacity 2s ease-in-out infinite;
+}
+// transition router-fade
+.router-fade-enter-active, .router-fade-leave-active {
+  transition: opacity .3s;
+}
+.router-fade-enter, .router-fade-leave-active {
+  opacity: 0;
+}
+
+.bounce-enter-active {
+  animation: bounce-in .3s;
+}
+.bounce-leave-active {
+  animation: bounce-in .3s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+.el-loading-mask {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+@media only screen and (max-width: 1000px) {
+  
+}
