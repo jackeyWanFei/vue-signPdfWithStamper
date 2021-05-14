@@ -15,7 +15,7 @@
     "crypto-js": "^3.1.9-1",
     "element-ui": "^2.13.0",
     "html2canvas": "^1.0.0-rc.5",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "vue": "^2.5.2",
     "vue-pdf": "^4.0.7",
     "vue-router": "^3.0.1"
